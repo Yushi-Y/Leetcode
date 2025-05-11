@@ -1,4 +1,4 @@
-# Running Sum of 1d Array
+# (Easy) Running Sum of 1d Array
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
         """
@@ -15,7 +15,7 @@ class Solution:
 # Space complexity: O(n) - store the running_sum list
 
 
-# Find Pivot Index
+# (Easy) Find Pivot Index
 class Solution:
     def pivotIndex(self, nums: List[int]) -> int:
         """
