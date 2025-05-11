@@ -10,7 +10,9 @@ class Solution:
             sum_so_far += num
             running_sum.append(sum_so_far)
         return running_sum
-
+        
+# Time complexity: O(n) - for loop
+# Space complexity: O(n) - store the running_sum list
 
 
 # Find Pivot Index
@@ -27,5 +29,8 @@ class Solution:
                 return i
             left_sum += num
         return -1
+
+# Time complexity: O(n) (computing the sum) + O(n) (for loop) = O(n)
+# Space complexity: O(1) - only left_sum and right_sum are stored, both O(1)
 
 
