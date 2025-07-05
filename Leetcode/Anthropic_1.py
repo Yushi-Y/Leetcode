@@ -1,6 +1,9 @@
+# 609. Find Duplicate File in System
+
 # Logic: parse the path to be dire/file_name, remove the file content
 # Then create a dictionary, where key is each file content, value is list of parsed path with that file content
 # For every key that has a value with more than one entry, return that value (list)
+
 class Solution:
     def findDuplicate(self, paths: List[str]) -> List[List[str]]:
         content_map = {}
