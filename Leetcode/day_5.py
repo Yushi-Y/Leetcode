@@ -37,26 +37,51 @@ class Solution(object):
 
 # Longest Palindrome
 class Solution:
+    # Logic: For each character count (for loop): 
+    # If even, add full count. If odd, add count - 1 (largest even part). 
+    # If an odd count was found, add an additional 1 to place a single odd letter in the center.
+
     def longestPalindrome(self, s: str) -> int:
+        # Edge case
         if not s:
             return 0
-
-        # Create a frequecy dictionary of character counts
-        freq = {}
+        
+        freq_dict = {}
         for char in s:
-            # Get the count for each character
-            freq[char] = freq.get(char, 0) + 1
+            freq_dict[char] = freq_dict.get(char, 0) + 1
 
         has_odd_freq = False
         length = 0
 
-        for char_freq in freq.values():
-            if char_freq % 2 == 0:
-                length += char_freq
+        for count in freq_dict.values():
+            if count//2 == 0:
+                length += count
             else:
-                # Extract the floor even number from the odd freq
-                length += char_freq - 1
+                length += count-1
                 has_odd_freq = True
         
-        # Add 1 to the length if there is a single character left to be put in the middle
         return length + has_odd_freq
+
+# Or use Counters 
+# from collections import Counter
+
+# class Solution:
+#     def longestPalindrome(self, s: str) -> int:
+#         # Edge case
+#         if not s:
+#             return 0
+        
+#         counts = Counter(s) # Counter({'c': 4, 'd': 2, 'a': 1, 'b': 1})
+
+#         has_odd_freq = False
+#         length = 0
+
+#         for count in counts.values():
+#             if count//2 == 0:
+#                 length += count
+#             else:
+#                 length += count-1
+#                 has_odd_freq = True
+        
+#         return length + has_odd_freq
+
