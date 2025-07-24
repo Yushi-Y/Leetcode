@@ -1,27 +1,20 @@
 # Binary Search
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        """
-        Returns the index of the target value in an array of integers in ascending order,
-        or -1 if the target is not found.
-        """
-        # Initialise two pointers
-        left, right = 0, len(nums) - 1
+   # Returns the index of the target value in an array of integers in ascending order, or -1 if the target is not found.
+   # O(log n) implies that need to use binary search, not linear search O(n)
+   # Binary Search: Maintaining two pointers: left and right (initially pointing to the first and last index). Repeatedly narrowing the search space by comparing the middle element to the target. Halving the search space each time.
+        left = 0
+        right = len(nums) - 1
 
-        # Binary search - reduce the search space by half in each iteration
-        # Time complexity is O(log(n)), as maximum iterations are log2n times
         while left <= right:
-            # Compare the target with the middle element
-            mid = (left + right) // 2
-
+            mid = (left+right) // 2
             if nums[mid] == target:
                 return mid
             elif nums[mid] < target:
                 left = mid + 1
             else:
                 right = mid - 1
-
-        # The while loop ends when left > right        
         return -1
 
 
