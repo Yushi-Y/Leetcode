@@ -1,4 +1,4 @@
-# 609. Find Duplicate File in System
+# (Medium) 609. Find Duplicate File in System
 
 # Logic: parse the path to be dire/file_name, remove the file content
 # Then create a dictionary, where key is each file content, value is list of parsed path with that file content
