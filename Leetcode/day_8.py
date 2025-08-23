@@ -1,27 +1,3 @@
-## Longested Substring Without Repeating Characters
-class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-        # Use a sliding window approach to keep a set of unique characters in the window
-        max_len = 0
-        left = 0
-        right = 0
-        chars = set()
-        n = len(s)
-    
-        # If no repeating character encoutered, expand the window by one character
-        while right < n:
-            if s[right] not in chars:
-                chars.add(s[right])
-                right += 1
-                max_len = max(max_len, right - left)
-            
-            # If a repeating character is encountered, remove one character from the beginning
-            else:
-                chars.remove(s[left])
-                left += 1
-    
-        return max_len
-
 
 
 ## Permutation in String
