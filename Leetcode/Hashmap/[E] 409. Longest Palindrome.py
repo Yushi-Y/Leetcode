@@ -1,5 +1,6 @@
 # (Easy) Longest Palindrome
 class Solution:
+    # Use HASHMAPS (dictionaries)
     # Logic: For each character count (for loop): 
     # If even, add full count. If odd, add count - 1 (largest even part). 
     # If an odd count was found, add an additional 1 to place a single odd letter in the center.

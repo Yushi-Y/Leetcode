@@ -4,7 +4,7 @@ class Solution:
         if len(s) != len(t):
             return False
 
-        # maintain two dictionaries for one-to-one character mappings
+        # maintain two dictionaries for one-to-one character mappings - HASHMAPS (dictionaries)
         s_to_t_mapping = {}
         t_to_s_mapping = {}
 
