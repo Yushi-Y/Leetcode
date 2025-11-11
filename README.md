@@ -10,7 +10,7 @@ Contains LeetCode problems organised by difficulty:
 - **M**: Intermediate complexity challenges
 
 ### `/Interviews/`
-Real coding interview questions and exercises from companies:
-- Banking system design (Anthropic)
+Coding interview questions and exercises:
+- Banking system design 
 - Data analysis (Pandas exercises)
 - SQL query problems

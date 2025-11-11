@@ -1,0 +1,23 @@
+# Local company reference files (not uploaded to GitHub)
+_company_reference.md
+_company_notes.txt
+*.company.txt
+*.company.md
+
+# Local notes directory
+_local/
+.local/
+
+# OS files
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
