@@ -7,10 +7,10 @@ A collection of my solved LeetCode problems and coding interview questions.
 ### `/Leetcode/`
 Contains LeetCode problems organised by difficulty:
 - **E**: Easy questions on algorithms and data structures
-- **M**: Intermediate complexity challenges
+- **M**: Medium difficulty challenges
 
 ### `/Interviews/`
-Coding interview questions and exercises:
+Coding interview questions:
 - Banking system design 
-- Data analysis (Pandas exercises)
-- SQL query problems
+- Pandas exercises
+- SQL exercises
