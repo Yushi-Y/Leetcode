@@ -1,4 +1,4 @@
-# 🧠 LeetCode & Coding Interview Practice
+# 🧠 LeetCode & Coding Interviews
 
 A collection of my solved LeetCode problems and coding interview questions.
 

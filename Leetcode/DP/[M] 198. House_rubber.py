@@ -9,6 +9,7 @@
 # Time complexity: O(n) - n is the number of houses
 # Space complexity: O(n) - dp array
 
+
 class Solution:
     def rob(self, nums: List[int]) -> int:
         n = len(nums)
