@@ -8,7 +8,8 @@ A collection of my solved LeetCode problems and coding interview questions.
 Contains LeetCode problems organised by topic:
 - **Arrays**: Array manipulation problems
 - **Binary search**: Binary search algorithms
-- **Dynamic programming**: DP challenges
+- **DFS**: Depth-first search problems
+- **DP**: Dynamic programming challenges
 - **Hashmap**: Hash table solutions
 - **Linked list**: Linked list operations
 - **Sliding window**: Sliding window techniques
@@ -16,7 +17,7 @@ Contains LeetCode problems organised by topic:
 
 ### `/Interviews/`
 Coding interview questions:
-- **Companies**: Company-specific questions (Anthropic, CGG, Visa)
-- **Huawei**: Huawei interview questions (LeetCode-style, ML/DL, basic programming)
+- **Companies**: Company-specific interview questions
+- **Huawei**: Huawei practice questions (LeetCode-style, ML/DL)
 - **Pandas**: Pandas exercises
-- **SQL_Exercises.py**: SQL practice questions
+- **SQL_Exercises**: SQL practice questions
