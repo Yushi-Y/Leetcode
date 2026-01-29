@@ -37,7 +37,9 @@ class MovingAverage:
         Initialize your data structure here.
         :param size: The size of the sliding window
         """
-        # TODO: Initialize your variables here
+        # Double-Ended Queue (deque)
+        # allows you to add or remove elements from both ends efficiently
+        # list is ineffcient if pop from left size (O(n) as shift everything to left)
         self.queue = deque()
         self.size = size
         self.sum = 0
@@ -48,7 +50,6 @@ class MovingAverage:
         :param val: The new value to add
         :return: The moving average of the last 'size' values
         """
-        # TODO: Implement the logic here
         self.queue.append(val)
         self.sum += val
 
