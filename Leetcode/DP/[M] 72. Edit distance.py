@@ -16,13 +16,14 @@ class Solution(object):
         # O(nm), O(m) - 1d array
         f = list(range(m + 1)) # it takes j steps to convert to word2[:j] from an EMPTY string
         for i, x in enumerate(word1):
-            prev = f[0]
-            f[0] = i + 1
+            prev = f[0] # store the previous value before moving j
+            f[0] = i + 1 # +1 for index adjustment
 
             for j, y in enumerate(word2):
-                tmp = f[j + 1]
-                f[j + 1] = prev if x == y else min(f[j], f[j+1], prev) + 1
-                prev = tmp
+                tmp = f[j + 1] # temporarily store f[j + 1]
+                f[j + 1] = prev if x == y else min(f[j], f[j+1], prev) + 1 # update f[j + 1]
+                prev = tmp # update prev
+
         return f[m]
 
 
@@ -54,7 +55,8 @@ class Solution(object):
         #         return i + 1
         #     if word1[i] == word2[j]:
         #         return dfs(i-1, j-1) 
-        #     return min(dfs(i, j-1), dfs(i-1, j), dfs(i-1, j-1)) + 1
+        #     return min(dfs(i, j-1), dfs(i-1, j), dfs(i-1, j-1)) + 1 # delete, insert, replace
 
         # return dfs(n-1, m-1) (zero-indexed, so last index is n - 1)
+        # backwards as 
         
