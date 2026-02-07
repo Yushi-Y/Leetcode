@@ -6,7 +6,8 @@ class Solution:
         # 1d array: TC O(nm), SC O(m)
         f = [0] * (m + 1)
         for x in text1:
-            prev = 0 # f[0]
+            prev = f[0] # 0
+
             for j, y in enumerate(text2):
                 tmp = f[j + 1]
                 f[j + 1] = prev + 1 if x == y else max(f[j], f[j+1])

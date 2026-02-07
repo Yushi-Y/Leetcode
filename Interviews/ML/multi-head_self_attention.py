@@ -63,7 +63,7 @@ def multi_head_masked_self_attention(X, W_q, W_k, W_v, W_o, num_heads):
 
 
     # Concatenate the heads
-    attn_outputs = attn_outputs.reshape(0, 2, 1, 3).reshape(batch_size, seq_len, d_model)
+    attn_outputs = attn_outputs.transpose(0, 2, 1, 3).reshape(batch_size, seq_len, d_model)
 
     # Output projection
     outputs = attn_outputs @ W_o # (batch_size, seq_len, d_model)
