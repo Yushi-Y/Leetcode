@@ -21,7 +21,7 @@
 # So it cycles through 0, 1, 2, 3, 4, 0, 1, 2, 3, 4 — exactly simulating the circular array.
 
 # Code logic
-# While the stack is non-empty and the current num is larger than the num at the stack's top index → pop and add the current num to answers
+# While the stack is non-empty and the current num is larger than the num at the stack's top index → pop and add the current num to answers at the top index
 # Push the current index onto the stack
 
 class Solution:
@@ -35,7 +35,7 @@ class Solution:
             while stack and nums[idx] > nums[stack[-1]]:
                 last = stack.pop()
                 answers[last] = nums[idx]
-            if i < n:
+            if i < n: # length of stack is n only
                 stack.append(idx) 
 
         return answers
