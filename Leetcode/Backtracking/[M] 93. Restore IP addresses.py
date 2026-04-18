@@ -53,7 +53,17 @@ class Solution:
         backtrack(0, []) # start backtracking from empty state
         return result
 
-            
+# overview of for loop
+# "25525511135"
+#  ↓ try segment of length 1: "2"
+#    ↓ try "5", "55", "525" ...
+#  ↓ try segment of length 2: "25"
+#    ↓ ...
+#  ↓ try segment of length 3: "255"
+#    ↓ try "2", "25", "255"  → valid! → recurse
+#       ↓ try "5", "55", "511" → 511 > 255, prune ✗
+#       ↓ ...
+
 
 # Trace for "0000"
 # backtrack(0, [])
