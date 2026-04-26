@@ -4,7 +4,7 @@ class Solution:
         # TC(logn)
         n = len(nums)
 
-        # edge cases
+        # edge case - empty list
         if not nums:
             return [-1, -1]
         
@@ -17,12 +17,16 @@ class Solution:
             return [start_index, end_index]
 
 # find_start: Find the LEFTMOST target
-# When you see the target, don't stop—there might be more copies to the LEFT
+# When you see the target, don't stop — there might be more copies to the LEFT
 # So you move right to keep searching left
 
 # find_end: Find the RIGHTMOST target
-# When you see the target, don't stop—there might be more copies to the RIGHT
+# When you see the target, don't stop — there might be more copies to the RIGHT
 # So you move left to keep searching right
+
+# find_start: nums[mid] < target — when nums[mid] == target, it falls into the else, so right = mid - 1. This pushes the search leftward, squeezing past equal elements to find the first one. Returns left.
+# find_end: nums[mid] <= target — when nums[mid] == target, it stays in the if, so left = mid + 1. This pushes the search rightward, squeezing past equal elements to find the last one. Returns right.
+# So the = decides which direction you keep searching when you're sitting on a match.
 
     def find_start(self, nums, target):
         left, right = 0, len(nums) - 1 # index
@@ -52,27 +56,6 @@ class Solution:
 
         return right
 
-
-
-
-
-
-        # Two pointers, O(n)
-        # if not nums:
-        #     return [-1, -1]
-
-        # left, right = 0, len(nums) - 1
-
-        # while left <= right and nums[left] != target:
-        #     left += 1
-
-        # while left <= right and nums[right] != target:
-        #     right -= 1 
-
-        # if left > right: # so no target exists
-        #     return [-1, -1]
-
-        # return [left, right]
 
 
         
