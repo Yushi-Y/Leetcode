@@ -55,8 +55,11 @@ class Solution:
 
         
 # ### ------------BFS-----------------
-### Thoughts: use the classic pesudocode for BFS
-# Same logic as DFS, just iterative with a queue instead of recursive calls at 'B'. 
+### Thoughts: 
+# Same logic as DFS, just iterative with a queue (adding to visited and queue) instead of recursive calls at 'B'. 
+# Every 'E' → enqueued (add to queue) + added to visited → popped → marked 'B' or digit
+
+### Use the classic pesudocode for BFS
 # queue = [start]
 # visited = {start}
 
@@ -66,6 +69,34 @@ class Solution:
 #         if neighbor not in visited:
 #             visited.add(neighbor)
 #             queue.append(neighbor)
+
+
+### Example
+# initial click (0,0), all empty board
+
+# queue   = [(0,0)]
+# visited = {(0,0)}
+
+# --- pop (0,0), count=0, mark 'B', enqueue neighbors ---
+
+# queue   = [(0,1), (1,0), (1,1)]
+# visited = {(0,0), (0,1), (1,0), (1,1)}
+
+# --- pop (0,1), count=0, mark 'B', enqueue neighbors ---
+# (0,0) already in visited → skip
+# (1,1) already in visited → skip
+# (1,2) new → add
+
+# queue   = [(1,0), (1,1), (1,2)]
+# visited = {(0,0), (0,1), (1,0), (1,1), (1,2)}
+
+# ... and so on
+
+# visited = every coordinate ever enqueued (grows monotonically, never shrinks)
+# queue = coordinates waiting to be processed (shrinks as you popleft, grows as you enqueue)
+
+# Visited keeps track of all 'E' cells that have been enqueued so far — so you never process the same cell twice. It stops spreading when: a cell has adjacent mines → mark digit, don't enqueue its neighbors; a cell is out of bounds; a cell is already in visited
+# So BFS naturally forms the "revealed region" you see in real minesweeper — spreading until it hits numbered borders on all sides.
 
 
 ### TC: Same as DFS — each cell is visited at most once due to the visited set, so worst case you process every cell once.
@@ -96,7 +127,7 @@ class Solution:
                 # for each of 8 neignbors (nr, nc):
                 for (nr, nc) in [(r, c+1), (r, c-1), (r+1, c), (r+1, c-1), (r+1, c+1), (r-1, c), (r-1, c+1), (r-1, c-1)]:
                     # IMPORTANT! Do bounding check before adding to queue - positive checks chained by AND not OR
-                    if 0 <= nr < m and 0 <= nc < n and (nr, nc) not in visited: # and board[nr][nc] == 'E'
+                    if 0 <= nr < m and 0 <= nc < n and (nr, nc) not in visited: # not a visited 'E'
                         visited.add((nr, nc))
                         queue.append((nr, nc))
                     
@@ -114,4 +145,22 @@ class Solution:
         return board
 
         
+### Difference between DFS and BFS (in minesweeper)
+# The only difference is the order they visit cells:
+# board:
+# (0,0) (0,1) (0,2)
+# (1,0) (1,1) (1,2)
+# (2,0) (2,1) (2,2)
 
+# BFS order (level by level, outward):
+# (0,0) → (0,1) (1,0) (1,1) → (0,2) (2,0) (2,1) (2,2)
+
+# DFS order (go deep first, then backtrack):
+# (0,0) → (0,1) → (0,2) → (1,2) → (2,2) → (2,1) → (2,0) → (1,0) → (1,1)
+
+# But since every 'E' cell eventually gets marked 'B' or a digit in both cases, the final board looks the same.
+
+# Think of it like exploring a maze:
+# BFS — sends scouts in all directions simultaneously, expanding the frontier evenly
+# DFS — picks one path and goes as deep as possible, then backtracks
+# For this problem it doesn't matter which you use — same result, same TC/SC. The choice is just about style and recursion limit concerns of DFS.
