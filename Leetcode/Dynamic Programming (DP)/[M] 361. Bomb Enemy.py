@@ -57,7 +57,8 @@ def maxKilledEnemies(grid: list[list[str]]) -> int:
 
 ### DP approach
 
-# What the brute force does. For each empty cell it launches four fresh walks outward to the walls. The fatal redundancy: cells in the same wall-bounded zone re-walk the same enemies. 
+# What the brute force does. For each empty cell it launches four fresh walks outward to the walls. 
+# The fatal redundancy: cells in the same wall-bounded zone re-walk the same enemies. 
 
 ### DP thoughts
 # Why the second is DP. **The defining feature of DP is a recurrence: each subproblem's answer is built from a smaller already-solved one, computed once and stored. ** Look at the left table:
@@ -151,7 +152,7 @@ def maxKilledEnemies(grid: list[list[str]]) -> int:
             if grid[i][j] == '0':
                 total = 0
                 # add edge cases
-                # recurrance from 1-step sub-problems already solved
+                # classic DP: recurrance from 1-step before sub-problems that are already solved
                 if j >= 1: total += left[i][j-1] 
                 if j < cols-1: total += right[i][j+1]
                 if i >= 1: total += up[i-1][j]
