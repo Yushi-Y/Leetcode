@@ -107,3 +107,47 @@ class Solution:
             #     return min(dfs(i - 1, c), dfs(i, c - coins[i]) + 1)
             
             # return dfs(n - 1, amount)
+
+
+#### 2026.6.27重做解法
+
+# Input:
+
+# coin denomination = []
+# Target number = int
+
+# Write a function to find the minimal number of coins to come up with the exact target number
+
+# E.G.
+
+# input : [1, 3, 5]
+# Target: 11
+
+# solution: 5 + 5 + 1 => 3
+
+
+### Thoughts
+# dp = [] - length is target_num + 1
+# dp[i] = num of coins to add to target number i 
+# dp[0] = 0, dp[rest] = big number
+# for every i (0 to target num), 
+    # for every coin in coins
+        # dp[i] = min(dp[i], dp[i - coin] + 1)
+
+
+### TC - n is num of coins, then O(target_num * n)
+# SC - O(target_num)
+
+def mincoin(coins, target_num):
+    dp = [float('inf')] * (target_num + 1)
+    dp[0] = 0
+
+    for i in range(1, target_num+1):
+        for coin in coins:
+            if i - coin >= 0: # dp index must be = 0
+                dp[i] = min(dp[i], dp[i - coin] + 1)
+
+    return dp[target_num] if dp[target_num] != float('inf') else -1
+
+
+
