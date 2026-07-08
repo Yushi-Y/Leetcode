@@ -24,12 +24,13 @@
 ### TC: O(n*logk) - n in for loop, log k for inserting element to heap with size k
 ### SC: O(k), heap size is k
 
+# 把堆想成一个只有 k 个座位的 VIP 房间,门口保安(heappop)每次都把房间里最弱的踢出去。最后留下的一定是最强的 k 个人,而 heap[0] 是他们中垫底的那位——全场第 k 强。
+
 
 import heapq
 
 def findKthLargest(self, nums, k):
     heap = []
-
     for num in nums:
         heapq.heappush(heap, num)
         if len(heap) > k:
